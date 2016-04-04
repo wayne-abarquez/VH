@@ -1,0 +1,56 @@
+<md-dialog id="member-infowindow-panel" class="infowindow-dialog"
+    ng-controller="memberDetailController as mbrDetCtl"
+    ng-show="showMemberInfoWindow">
+    <md-toolbar>
+        <div class="md-toolbar-tools" layout="column" layout-align="start start" style="margin-bottom:5px !important;">
+            <div layout="row" layout-align="start start" style="width: 100%;">
+                <!-- Member Name -->
+                <h5 class="infowindow-title" style="font-size: 16px;">{{mbrDetCtl.memberName}}</h5>
+                <span flex></span>
+                <md-button class="md-icon-button close-icon" ng-click="mbrDetCtl.close()">
+                  <md-icon aria-label="Close">close</md-icon>
+                </md-button>
+            </div>
+            <!-- Address -->
+            <div class="infowindow-subtitle" flex>{{mbrDetCtl.memberAddress}}</div>
+            <!-- Pref -->
+            <div class="infowindow-subtitle" flex>{{mbrDetCtl.memberPref}}</div>
+            <!-- Postal -->
+            <div class="infowindow-subtitle" flex>{{mbrDetCtl.memberPostal}}</div>
+
+            <div class="infowindow-action-buttons">
+                <md-button ng-click="mbrDetCtl.viewTransactions($event)">View Transactions</md-button>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+
+            <!-- BASIC TAB -->
+            <md-tab label="basic">
+              <md-content class="md-padding" id="member-basic-tab-content">
+              </md-content>
+            </md-tab>
+
+            <!-- ROUTE TAB -->
+            <md-tab label="route">
+              <md-content class="md-padding" id="member-route-tab-content">
+              </md-content>
+            </md-tab>
+
+            <!-- PERSONAL TAB -->
+            <md-tab label="personal">
+              <md-content class="md-padding" id="member-personal-tab-content">>
+              </md-content>
+            </md-tab>
+
+            <!-- FINANCIAL TAB -->
+            <md-tab label="financial">
+              <md-content class="md-padding" id="member-financial-tab-content">>
+              </md-content>
+            </md-tab>
+
+        </md-tabs>
+    </md-dialog-content>
+</md-dialog>

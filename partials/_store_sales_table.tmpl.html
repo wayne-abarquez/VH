@@ -1,0 +1,65 @@
+<md-dialog aria-label="Sales Transactions" class="table-container-dialog" ng-cloak>
+<md-card>
+  <!-- Table Toolbar -->
+  <md-toolbar class="md-table-toolbar md-default" ng-hide="stSalesCtl.filter.show">
+    <div class="md-toolbar-tools">
+      <span class="table-header-title">Store Sales Transactions</span>
+      <div flex="" class="flex"></div>
+      <md-button class="md-icon-button" ng-click="stSalesCtl.filter.show = true">
+        <md-tooltip md-direction="left">Filter List</md-tooltip>
+        <md-icon>filter_list</md-icon>
+      </md-button>
+      <md-button class="md-icon-button" ng-click="stSalesCtl.close()">
+        <md-tooltip md-direction="left">Close Table</md-tooltip>
+        <md-icon>close</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <!-- Filter Toolbar -->
+  <md-toolbar class="md-table-toolbar md-default filter-toolbar"
+      ng-show="stSalesCtl.filter.show">
+    <div class="md-toolbar-tools">
+      <md-icon>search</md-icon>
+      <form flex name="stSalesCtl.filter.form">
+          <md-input-container md-no-float class="md-block">
+            <input type="text" ng-model="stSalesCtl.query.filter" placeholder="search">
+          </md-input-container>
+      </form>
+      <md-button ng-click="stSalesCtl.removeFilter()">
+        Back <md-icon>arrow_forward</md-icon>
+      </md-button>
+    </div>
+  </md-toolbar>
+
+  <md-table-container>
+    <table md-table md-progress="">
+      <thead md-head md-order="stSalesCtl.query.order" md-on-reorder="stSalesCtl.onReorder">
+        <tr md-row>
+          <th md-column ng-repeat="col in stSalesCtl.columns">{{col}}</th>
+        </tr>
+      </thead>
+      <tbody md-body>
+        <tr md-row
+        ng-repeat="rows in stSalesCtl.rowData
+        | filter: stSalesCtl.query.filter
+        | orderBy: stSalesCtl.query.order
+        | limitTo: stSalesCtl.query.limit : (stSalesCtl.query.page - 1) * stSalesCtl.query.limit">
+          <td ng-repeat="data in rows track by $index" md-cell>{{data}}</td>
+        </tr>
+      </tbody>
+    </table>
+  </md-table-container>
+
+  <md-toolbar class="md-table-toolbar md-default table-footer">
+      <div layout="row" layout-align="start center" flex>
+          <md-table-pagination
+              md-limit="stSalesCtl.query.limit"
+              md-page="stSalesCtl.query.page"
+              md-total="{{stSalesCtl.rowData.length}}"
+              md-page-select>
+          </md-table-pagination>
+      </div>
+  </md-toolbar>
+</md-card>
+</md-dialog>

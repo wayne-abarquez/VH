@@ -1,0 +1,43 @@
+md-card#time-slider {
+  width: 15%;
+  position: absolute;
+  bottom: 0px;
+  left: 0px;
+
+  md-card-content {
+    padding: 8px;
+
+    .slider-content {
+      #slider-label {
+        font-size: 16px;
+        margin: 0px;
+        color: $primary-color;
+
+        span {
+         font-size: 11px;
+         color: #34495e;
+        }
+      }
+      md-divider {
+        margin-top: 5px;
+        margin-bottom: 5px;
+      }
+      .slider-item-content {
+        md-slider {
+          height:30px;
+
+          .md-thumb-container {
+            top: 30%;
+            .md-thumb, .md-focus-thumb, .md-focus-ring {
+              top: -3px;
+            }
+          }
+
+          .md-track-container {
+            top: 15px;
+          }
+        }
+      }
+    }
+  }
+}

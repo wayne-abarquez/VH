@@ -1,0 +1,17 @@
+.infobox-card {
+  @extend .mdcard;
+  padding: 10px;
+  font-size: 13px;
+
+  .arrow {
+    width: 0px;
+    height: 0px;
+    position: absolute;
+    padding: 0px !important;
+    left: -28px;
+    top: 60px !important;
+    border: 14px solid rgba(255, 0, 0, 0);
+    top: 0px;
+    border-right-color: white;
+  }
+}

@@ -1,0 +1,44 @@
+<md-dialog id="store-infowindow-panel" class="infowindow-dialog"
+    ng-controller="storeDetailController as stDetCtl"
+    ng-show="showStoreInfoWindow">
+    <md-toolbar>
+        <div class="md-toolbar-tools" layout="column" layout-align="start start">
+            <div layout="row" layout-align="start start" style="width: 100%;">
+                <h5 class="infowindow-title">{{stDetCtl.eCompany}}</h5>
+                <span flex></span>
+                <md-button class="md-icon-button close-icon" ng-click="stDetCtl.close()">
+                  <md-icon aria-label="Close">close</md-icon>
+                </md-button>
+            </div>
+            <div class="infowindow-subtitle" flex>{{stDetCtl.company}}</div>
+            <div class="infowindow-subtitle" flex>{{stDetCtl.shopName}}</div>
+            <div class="infowindow-action-buttons">
+                <md-button ng-click="stDetCtl.viewTransactions($event)">View Transactions</md-button>
+            </div>
+        </div>
+    </md-toolbar>
+
+    <md-dialog-content>
+        <md-tabs md-dynamic-height md-border-bottom>
+
+            <!-- GENERAL TAB -->
+            <md-tab label="general">
+              <md-content class="md-padding" id="store-general-tab-content">
+              </md-content>
+            </md-tab>
+
+            <!-- MEMBERSHIP TAB -->
+            <md-tab label="membership">
+              <md-content class="md-padding" id="store-membership-tab-content">
+              </md-content>
+            </md-tab>
+
+            <!-- FINANCIAL TAB -->
+            <md-tab label="financial">
+              <md-content class="md-padding" id="store-financial-tab-content">>
+              </md-content>
+            </md-tab>
+
+        </md-tabs>
+    </md-dialog-content>
+</md-dialog>

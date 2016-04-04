@@ -1,0 +1,12 @@
+<md-card id="time-slider" ng-show="showTimeSlider">
+    <md-card-content layout="column" ng-controller="timeSliderController as timeSliderCtl">
+         <div class="slider-content">
+            <h4 id="slider-label">Historical <span>{{ timeValue }}</span></h4>
+            <md-divider></md-divider>
+                <div class="slider-item-content">
+                    <!-- Slider -->
+                    <md-slider flex class="md-primary" step="1" min="2009" max="2014" ng-model="timeSliderCtl.timeValue"></md-slider>
+                </div>
+         </div>
+    </md-card-content>
+</md-card>
